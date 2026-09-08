@@ -1,0 +1,497 @@
+/* ===== Fonts ===== */
+/* ===== Page transitions ===== */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+::view-transition-old(root) {
+    animation: slide-out 0.4s ease forwards;
+}
+
+::view-transition-new(root) {
+    animation: slide-in 0.4s ease forwards;
+}
+
+@keyframes slide-out {
+    to {
+        transform: translateX(-40px);
+        opacity: 0;
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(40px);
+        opacity: 0;
+    }
+}
+/* ===== Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fdfdfb;
+    color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+    background-color: rgba(253, 253, 251, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(6px);
+}
+
+.nav-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 2rem 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.brand-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-links a {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    position: relative;
+    transition: opacity 0.3s ease;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 1px;
+    background-color: #1a1a1a;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* ===== Greeting / Logout container ===== */
+.container {
+    max-width: 1300px;
+    margin: 3rem auto 0;
+    padding: 0 2.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 2.4rem;
+    color: #1a1a1a;
+}
+
+.container a {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 2px;
+}
+
+/* ===== Main content / Table ===== */
+.main-content {
+    max-width: 1300px;
+    margin: 4rem auto;
+    padding: 0 2.5rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none !important;
+}
+
+thead th {
+    font-weight: 500;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8a8a85;
+    text-align: left;
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid #e5e3de;
+}
+
+tbody tr {
+    border-bottom: 1px solid #ece9e3;
+    transition: background-color 0.3s ease;
+}
+
+tbody tr:hover {
+    background-color: #f5f3ee;
+}
+
+tbody td {
+    padding: 1.5rem 1rem;
+    font-size: 1rem;
+    color: #1a1a1a;
+    vertical-align: middle;
+}
+
+tbody img {
+    display: block;
+    width: 100px;
+}
+
+/* ===== Footer ===== */
+.footer {
+    border-top: 1px solid #e5e3de;
+    margin-top: 5rem;
+    padding: 2.5rem;
+    text-align: center;
+}
+
+.footer-content p {
+    font-size: 0.75rem;
+    color: #a5a29c;
+    letter-spacing: 1px;
+}
+/* ===== Album Grid ===== */
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 2.5rem;
+}
+
+.album-card {
+    cursor: pointer;
+}
+
+.album-cover {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background-color: #ece9e3;
+    margin-bottom: 1rem;
+}
+
+.album-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.album-card:hover .album-cover img {
+    transform: scale(1.05);
+}
+
+.album-info {
+    padding: 0 0.2rem;
+}
+
+.album-id {
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #a5a29c;
+}
+
+.album-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 1.3rem;
+    margin: 0.3rem 0;
+    color: #1a1a1a;
+}
+
+.album-meta {
+    font-size: 0.85rem;
+    color: #8a8a85;
+}
+/* ===== Page title ===== */
+.page-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    color: #1a1a1a;
+}
+
+/* ===== Manage cards: hover actions ===== */
+.manage-card .album-cover {
+    position: relative;
+}
+
+.card-actions {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.manage-card:hover .card-actions {
+    opacity: 1;
+}
+
+.btn-edit,
+.btn-delete {
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 0.6rem 1.2rem;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+}
+
+.btn-edit {
+    background-color: #fdfdfb;
+    color: #1a1a1a;
+    border: 1px solid #fdfdfb;
+}
+
+.btn-edit:hover {
+    background-color: transparent;
+    color: #fdfdfb;
+}
+
+.btn-delete {
+    background-color: transparent;
+    color: #fdfdfb;
+    border: 1px solid #fdfdfb;
+}
+
+.btn-delete:hover {
+    background-color: #c94f4f;
+    border-color: #c94f4f;
+    color: #fdfdfb;
+}/* ===== Edit page layout ===== */
+.edit-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 4rem;
+    max-width: 900px;
+}
+
+.edit-preview img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background-color: #ece9e3;
+    display: block;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #8a8a85;
+}
+
+.form-group input {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #1a1a1a;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #d8d5cf;
+    padding: 0.6rem 0.2rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-bottom-color: #1a1a1a;
+}
+
+.form-group input[readonly] {
+    color: #a5a29c;
+}
+
+.btn-save {
+    align-self: flex-start;
+    margin-top: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background-color: #1a1a1a;
+    color: #fdfdfb;
+    border: 1px solid #1a1a1a;
+    padding: 0.9rem 2.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-save:hover {
+    background-color: transparent;
+    color: #1a1a1a;
+}
+
+/* Responsive: stack on smaller screens */
+@media (max-width: 700px) {
+    .edit-layout {
+        grid-template-columns: 1fr;
+    }
+}/* ===== Add page: empty preview state ===== */
+.edit-preview {
+    position: relative;
+}
+
+.edit-preview img {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.preview-placeholder {
+    position: absolute;
+    inset: 0;
+    background-color: #ece9e3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #a5a29c;
+}/* ===== Login page ===== */
+.login-wrapper {
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.45)),
+                       url('https://i.pinimg.com/1200x/6a/96/2f/6a962f3ca71dd61ed725957ef54b6cbd.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    background-color: rgba(253, 253, 251, 0.65);
+    backdrop-filter: blur(20px);
+    padding: 3.5rem 3rem;
+    width: 100%;
+    max-width: 380px;
+    border-radius: 4px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 2.2rem;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.login-sub {
+    font-size: 0.85rem;
+    color: #8a8a85;
+    margin-bottom: 2rem;
+}
+
+.login-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.btn-login {
+    width: 100%;
+    margin-top: 0.5rem;
+    text-align: center;
+}/* ===== Homepage hero ===== */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 55vh;
+    margin-top: 2rem;
+    overflow: hidden;
+}
+
+.hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,0.15), rgba(0,0,0,0.4));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 3.5rem;
+    color: #fdfdfb;
+    letter-spacing: 1px;
+}
+
+.hero-sub {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #e8e6e3;
+    margin-top: 0.8rem;
+}
